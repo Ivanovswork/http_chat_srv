@@ -74,7 +74,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'chat.wsgi.application'
+WSGI_APPLICATION = None
+ASGI_APPLICATION = 'chat.asgi.application'
 
 
 # Database
@@ -123,6 +124,9 @@ USE_I18N = True
 USE_TZ = True
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
@@ -138,35 +142,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'  # URL Redis брокера сообщений
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # URL Redis базы данных для хранения результатов задач
-CELERY_ACCEPT_CONTENT = ['application/json'] # Укажите, какие типы содержимого принимать
-CELERY_TASK_SERIALIZER = 'json'  # Укажите, какой сериализатор использовать для задач
-CELERY_RESULT_SERIALIZER = 'json'  # Укажите, какой сериализатор использовать для результатов задач
-CELERY_TIMEZONE = 'Europe/Moscow'  # Укажите ваш часовой пояс
-CELERY_TASK_ACKS_LATE = True  # Важно для надежной обработки задач (задача подтверждается после выполнения)
-CELERY_TASK_DEFAULT_QUEUE = 'default'  # Очередь по умолчанию для задач
-CELERY_WORKER_PREFETCH_MULTIPLIER = 4  # Количество задач, которое воркер запрашивает за раз.  Уменьшите, если воркер потребляет слишком много памяти.
-
-# Optional settings (опциональные настройки)
-
-# Количество процессов-воркеров Celery
-CELERY_WORKER_CONCURRENCY = 4  # Оптимальное значение зависит от количества ядер процессора и типа задач
-
-# Максимальное время выполнения задачи (в секундах)
-CELERY_TASK_TIME_LIMIT = 300  # 5 минут (по умолчанию - без ограничений)
-
-# Максимальное время выполнения задачи "вхолостую" (soft time limit)
-CELERY_TASK_SOFT_TIME_LIMIT = 240 # 4 минуты (должно быть меньше, чем CELERY_TASK_TIME_LIMIT)
-
-# Защита от гонок (race conditions).  По умолчанию выключена.
-CELERY_TASK_STORE_ERRORS_EVEN_IF_IGNORED = True
-
-# Запретить повторную маршрутизацию задач (если задача уже есть в очереди)
-CELERY_TASK_REJECT_ON_WORKER_LOST = True
-
-
-# Настройки для периодических задач (Celery Beat)
-# Если вы используете периодические задачи
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-INSTALLED_APPS += ['django_celery_beat']

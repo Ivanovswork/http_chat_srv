@@ -7,7 +7,14 @@
     <list default="true" id="ec8c2d1c-4aa1-4398-9983-c7e5bbc3f757" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat/chat/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/chat/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/chat/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/chat/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/docker-compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chat/http_chat/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/http_chat/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/http_chat/celery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/http_chat/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/http_chat/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/http_chat/tasks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/http_chat/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/http_chat/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/http_chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/http_chat/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +53,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\desti\PycharmProjects\http_chat\chat" />
       <recent name="C:\Users\desti\PycharmProjects\http_chat" />
     </key>
   </component>
@@ -66,5 +74,8 @@
       <updated>1742321921914</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="docker-compose.yml" />
   </component>
 </project>
